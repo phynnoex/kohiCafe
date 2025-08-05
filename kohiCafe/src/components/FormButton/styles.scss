@@ -1,0 +1,14 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.form-button{
+    width: 100%;
+    text-align: center;
+    background-color: colors.$brand-brown;
+    padding: 30px;
+    font-family: fonts.$primary-font;
+    margin-top: 30px;
+    color: white;
+    border: none;
+    font-size: 20px;
+}

@@ -1,0 +1,14 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.featureSection{
+    background-color: colors.$brand-brown;
+    color: white;
+    padding: 30px 0px 50px 0px;
+    h1{
+        font-family: fonts.$primary-font;
+        text-align: center;
+        padding: 30px 20px;
+        margin: 0px;
+    }
+}

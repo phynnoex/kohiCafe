@@ -1,0 +1,46 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.heroSection {
+  display: flex;
+  padding: 0px 80px;
+  background-color: colors.$brand-lightBrown;
+
+  .heroDescription {
+    width: 50%;
+    padding: 50px 0px;
+    p{
+        width: 530px;
+        font-size: 20px;
+    }
+    h1 {
+      width: 530px;
+      font-family: fonts.$primary-font;
+      font-size: 64px;
+      margin: 0px;
+      padding: 0px;
+
+    }
+    .buttonContainer{
+        display: flex;
+        width: 430px;
+        justify-content: space-between;
+    }
+
+  }
+  .heroImage{
+    width: 50%;
+    padding: 50px 0px;
+    .imageContainer{
+        background-color: colors.$brand-green;
+        width: 80%;
+        height: 100%;
+        border-radius: 30px;
+        padding: 15px;
+        img{
+            width: 100%;
+            border-radius: 20px;
+        }
+    }
+  }
+}

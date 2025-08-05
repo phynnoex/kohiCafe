@@ -1,0 +1,8 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.sponsorsContainer{
+    width: 100%;
+    height: 100px;
+    background-color: colors.$brand-green;
+}

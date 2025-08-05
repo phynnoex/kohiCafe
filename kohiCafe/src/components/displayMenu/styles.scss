@@ -1,0 +1,15 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.display-menu{
+    padding: 20px 90px;
+    &__items-container{
+        display: flex;
+    }
+    &__title{
+        font-size: 38px;
+        font-family: fonts.$primary-font;
+        font-weight: 300;
+        width: 400px;
+    }
+}

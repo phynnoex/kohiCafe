@@ -1,0 +1,35 @@
+@use "../../styles/colors/colors";
+@use "../../styles/fonts";
+
+.navbar {
+  background-color: colors.$brand-brown;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 90px;
+  font-family: fonts.$primary-font;
+  text-transform: capitalize;
+  color: white;
+
+  nav {
+    ul {
+      display: flex;
+      list-style: none;
+      li {
+        margin: 20px;
+        font-size: 24px;
+        a {
+          text-decoration: none;
+          color: white;
+          &:hover{
+            text-decoration: underline;
+          }
+          &::after{
+            text-decoration: underline;
+          }
+        } 
+      }
+    }
+  }
+}

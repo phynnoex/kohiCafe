@@ -1,0 +1,23 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.featureCard{
+    width: 300px;
+    background-color: colors.$brand-green;
+    border-radius: 20px;
+    .cardImage{
+        img{
+            width: 100%;
+            border-radius: 20px 20px 0px 0px;
+        }
+    }
+    .cardDescription{
+        padding: 10px;
+        .descriptionTitle{
+            font-family: fonts.$primary-font;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        
+    }
+}

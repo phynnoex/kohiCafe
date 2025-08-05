@@ -1,0 +1,43 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.button {
+  font-family: fonts.$primary-font;
+
+  font-weight: 500;
+}
+.hero-button {
+  font-size: 24px;
+  border-radius: 50px;
+  width: 200px;
+  height: 72px;
+  &:hover {
+    background-color: colors.$brand-green;
+    box-shadow: 0px 4px 4px rgba(15, 15, 15, 0.5);
+    cursor: pointer;
+    color: white;
+  }
+}
+.secondary-button {
+  border: 2px solid black;
+  background-color: transparent;
+  color: #343434;
+}
+.primary-button {
+  border: none;
+  background-color: colors.$brand-green;
+  color: white;
+}
+.card-button {
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: 500;
+  border: none;
+  margin-top: 10px;
+  &:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+}

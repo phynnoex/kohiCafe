@@ -1,0 +1,46 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.sizeDisplay{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    
+    &__size-container{
+        display: flex;
+        flex-direction: column;
+        height: 20%;
+        text-align: center;
+    }
+    &__image-container{
+        background-color: none;
+        height: 50px;
+        width: 50px;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        border-radius: 50%;
+        padding: 10px;
+
+    }
+    &__image-container--active{
+        background-color: colors.$brand-green;
+
+    }
+    &__image{
+        width: 50%;
+    }
+    &__description{
+        h4{
+            margin: 0px;
+            padding: 0px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        p{
+            margin: 0px;
+            padding: 0px;
+            font-size: 16px
+        };
+    }
+}

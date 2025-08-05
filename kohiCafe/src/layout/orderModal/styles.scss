@@ -1,0 +1,217 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.order-modal {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  z-index: 2;
+
+  &__cancel {
+    padding: 20px;
+    text-align: center;
+    width: 70vw;
+    margin: auto;
+  }
+  &__content {
+    margin: auto;
+    width: 70vw;
+    background-color: white;
+    padding: 20px;
+    height: 80vh;
+    border: 2px solid rgba(51, 51, 51, 0.2);
+    box-shadow: 3px 4px 14px 2px rgba(0, 0, 0, 0.08);
+    z-index: 2;
+  }
+  &__navigation {
+    position: absolute;
+    height: 50px;
+    width: 180px;
+    background-color: #bcbcbc;
+    margin-left: calc(68vw);
+    margin-top: -45px;
+    border: 2px solid rgba(51, 51, 51, 0.2);
+    display: flex;
+    z-index: -1;
+  }
+  &__items {
+    position: relative;
+    width: 33.3%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    font-size: 25px;
+    padding-top: 10px;
+    opacity: 0.3;
+    color: colors.$brand-green;
+  }
+  &__items--active {
+    z-index: 1000;
+    background-color: white;
+    opacity: 1;
+  }
+  &__content-container {
+    display: flex;
+    height: 100%;
+    gap: 20px;
+    z-index: 12;
+    font-size: 18px;
+  }
+  &__image {
+    background-color: colors.$brand-green;
+    width: 50%;
+    display: flex;
+  }
+  &__image--display {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  &__confirm-button{
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: colors.$brand-brown;
+    color: white;
+    font-family: fonts.$primary-font;
+    font-size: 17px;
+    cursor: pointer;
+    &:hover{
+      box-shadow: 2px 2px 5px  rgb(114, 114, 114);
+    }
+  }
+  &__image--checkout {
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      color: colors.$brand-lightBrown;
+      text-transform: uppercase;
+      font-size: 64px;
+    }
+  }
+  &__order-description-container {
+    width: 50%;
+    min-height: 100%;
+  }
+  &__description-container--checkout {
+    display: flex;
+    flex-direction: column;
+  }
+  &__order-title {
+    h2 {
+      font-size: 40px;
+      font-weight: 700;
+      font-family: fonts.$primary-font;
+      width: 60%;
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+  &__calories {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  &__order-description {
+    margin-top: 40px;
+    font-size: 18px;
+  }
+  &__order-options {
+    margin-top: 20px;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: fonts.$primary-font;
+}
+.checkout-card-container {
+  max-height: 100%;
+  overflow: auto;
+}
+
+.checkout-card {
+  display: flex;
+  background-color: colors.$brand-lightBrown;
+  padding: 10px;
+  gap: 10px;
+  height: max-content;
+  &__description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__image {
+    padding: 20px;
+    background-color: colors.$brand-green;
+    img {
+      width: 80px;
+    }
+  }
+  &__bottom-action {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__size-container {
+    background-color: rgb(252, 223, 188);
+    border-radius: 5px;
+    padding: 5px;
+  }
+  &__remove-button{
+    padding: 10px 15px;
+    border: none;
+    background-color: colors.$brand-brown;
+    color: white;
+    border-radius: 3px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+}
+
+.checkout-summary {
+  margin-top: auto;
+  &__card {
+    background-color: rgb(253, 236, 199);
+    padding: 7px 10px;
+    font-size: 18px;
+  }
+  &__card--total {
+    background-color: colors.$brand-lightBrown;
+    padding: 10px;
+    font-weight: 700;
+  }
+}
+.checkout-button-container {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  
+  &__back {
+    width: 20%;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: fonts.$primary-font;
+  }
+  &__next {
+    cursor: pointer;
+    width: 80%;
+    padding: 15px;
+    background-color: colors.$brand-brown;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-family: fonts.$primary-font;
+  }
+}

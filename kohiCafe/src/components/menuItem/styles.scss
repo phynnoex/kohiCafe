@@ -1,0 +1,32 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.menu-item{
+    height: 150px;
+    width: 200px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: fonts.$primary-font;
+    gap: 10px;
+    &__image-Container{
+        height: 80%;
+        width: calc(0.8 * 150px);
+        background-color: #D9D9D9;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__image{
+        width: 50px;
+    }
+    &__title{
+        width: 100px;
+        text-align: center;
+        height: 15%;
+    }
+}

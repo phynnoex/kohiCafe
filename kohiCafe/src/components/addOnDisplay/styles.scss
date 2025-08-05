@@ -1,0 +1,40 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.addOnInput{
+    &__label{
+        font-weight: 700;
+        
+    }
+    &__field{
+        background-color: bisque;
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &_placeholder{
+        width: 80%;
+    }
+    &__Counter{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 85px;
+    }
+    &__Button{
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+    }
+}
