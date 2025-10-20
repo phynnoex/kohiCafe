@@ -1,48 +1,34 @@
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import image1 from "../../assets/shop-image.png";
+import type { Item } from "../../types/Item";
 import FeaturedCard from "../featureCards";
 import "./styles.scss";
-import { useState } from "react";
-
-type FeatureItem = {
-  name: string;
-  description: string;
-  image: string;
-};
+import { useEffect, useState } from "react";
+import { getItemsbyCategories } from "../../feautures/Specials";
+import { useModal } from "../../modalContext";
+import OrderModal from "../../layout/orderModal";
 
 export default function Carousel() {
-  const cards: FeatureItem[] = [
-    {
-      name: "Mitsushima kohi Blend",
-      description: "Mornings just got sweeter! Try a deliciously sweet Cinnamon",
-      image: image1,
-    },
-    {
-      name: "Mitsushima kohi Blend",
-      description: "Mornings just got sweeter! Try a deliciously sweet Cinnamon",
-      image: image1,
-    },
-    {
-      name: "Mitsushima kohi Blende3",
-      description: "Mornings just got sweeter! Try a deliciously sweet Cinnamon",
-      image: image1,
-    },
-    {
-      name: "Mitsushima kohi Blend23",
-      description: "Mornings just got sweeter! Try a deliciously sweet Cinnamon",
-      image: image1,
-    },
-    {
-      name: "Mitsushima kohi Blend2",
-      description: "Mornings just got sweeter! Try a deliciously sweet Cinnamon",
-      image: image1,
-    },
-    {
-      name: "Mitsushima kohi Blend3",
-      description: "Mornings just got sweeter! Try a deliciously sweet Cinnamon",
-      image: image1,
-    },
-  ];
+  const [cards, setCards] = useState<Item[]>([]);
+
+  const { modalOpen, setModalOpen } = useModal();
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+  const handleItemClick = (item: Item) => {
+    console.log("Item clicked:", item);
+    setSelectedItem(item);
+    setModalOpen(true);
+  };
+
+  
+
+  useEffect(() => {
+    async function fetchCards() {
+      const response = await getItemsbyCategories("EIrOjqRQWVo7NUbRF0pw");
+      setCards(response);
+    }
+    fetchCards();
+  }, []);
+
+
 
   const [startIndex, setStartIndex] = useState(0);
   const windowSize = 4;
@@ -54,13 +40,13 @@ export default function Carousel() {
 
   const handleLeft = () => {
     if (canGoLeft) {
-      setStartIndex(prev => prev - 1);
+      setStartIndex((prev) => prev - 1);
     }
   };
 
   const handleRight = () => {
     if (canGoRight) {
-      setStartIndex(prev => prev + 1);
+      setStartIndex((prev) => prev + 1);
     }
   };
 
@@ -72,13 +58,22 @@ export default function Carousel() {
 
       <div className="cardContainer">
         {visibleItems.map((card, index) => (
-          <FeaturedCard key={index} card={card} />
+          <FeaturedCard
+            key={index}
+            card={card}
+            onClick={() => handleItemClick(card)}
+          />
         ))}
       </div>
 
-      <button className="navButton" onClick={handleRight} disabled={!canGoRight}>
+      <button
+        className="navButton"
+        onClick={handleRight}
+        disabled={!canGoRight}
+      >
         <FaAngleRight />
       </button>
+      {modalOpen && selectedItem && <OrderModal item={selectedItem} />}
     </div>
   );
 }

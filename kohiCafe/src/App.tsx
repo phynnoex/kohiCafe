@@ -5,7 +5,6 @@ import Menu from "./pages/menu";
 import Navbar from "./layout/navbar";
 import Contact from "./pages/contact";
 import Footer from "./layout/footer";
-import { useState } from "react";
 
 import { useModal } from "./modalContext";
 

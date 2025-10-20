@@ -28,7 +28,7 @@ export default function CartsMenu({
 }: CartsMenuProps) {
 
   useEffect(() => {
-    console.log("Item-in carts maenu:", item);
+    console.log("Item-in carts menu:", item);
   }, [item]);
   return (
           <>

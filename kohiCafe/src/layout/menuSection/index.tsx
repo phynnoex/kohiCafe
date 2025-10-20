@@ -1,18 +1,10 @@
 import Aside from "../../components/Aside";
 import DisplayMenu from "../../components/displayMenu";
 import type { MenuCategory } from "../../types/Item";
-import { db } from "../../firebase";
 import type { Item } from "../../types/Item";
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
 import "./styles.scss";
-import {
-  getCategories,
-  getItemsbyCategories,
-  getAddonsbyCategory,
-} from "../../feautures/Specials";
-import AddOnWrapper from "../../components/AddOnWrapper";
-import OrderModal from "../orderModal";
+import { getCategories, getItemsbyCategories } from "../../feautures/Specials";
 
 export default function MenuSection() {
   const [categories, setCategories] = useState<MenuCategory[]>([]);
@@ -24,6 +16,11 @@ export default function MenuSection() {
       const fetchedCategories = await getCategories();
       setCategories(fetchedCategories);
       console.log("Fetched Categories:", fetchedCategories);
+      const fetchedItems = await getItemsbyCategories(
+        fetchedCategories[currentIndex]?.id
+      );
+      setItems(fetchedItems);
+      console.log("Fetched Items:", fetchedItems);
     })();
   }, []);
 
@@ -56,7 +53,6 @@ export default function MenuSection() {
           itemObjects={items}
         />
       </div>
-      
     </>
   );
 }

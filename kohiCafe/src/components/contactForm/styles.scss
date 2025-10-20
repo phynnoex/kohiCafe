@@ -1,0 +1,96 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.contactFormContainer{
+    background-color: colors.$brand-brown;
+    padding: 20px;
+    border-radius: 4px;
+    margin: 50px 100px;
+    
+    .contactFormHeading{
+        h2{
+            font-family: fonts.$primary-font;
+            font-size: 30px;
+            color: #fff;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+        hr{
+            border: none;
+            height: 1px;
+            background-color: #eee;
+            margin-bottom: 20px;
+        }
+    }
+    .contactForm{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        gap: 20px;
+        font-size: 20px;
+        .formGroup{
+            display: flex;
+            flex-direction: column;
+            min-width: 40%;
+            label{
+                font-family: fonts.$primary-font;
+                color: #fff;
+                margin-bottom: 8px;
+            }
+            input{
+                height: 64px;
+                box-sizing: border-box;
+                padding: 24px;
+                border-radius: 5px;
+                border: 0px;
+                font-size: 20px;
+                &:focus{
+                    outline: none;
+                    border: 2px solid black;
+                    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.2);
+                     transition: box-shadow 0.3s ease, border 0.1s ease;
+                }
+            }
+            textArea{
+                height: 150px;
+                box-sizing: border-box;
+                padding: 24px;
+                resize: none;
+                border-radius: 5px;
+                font-size: 20px;
+                &:focus{
+                    outline: none;
+                    border: 2px solid black;
+                    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.2);
+                    transition: box-shadow 0.3s ease, border 0.1s ease;
+                }
+            }
+        }
+        button{
+            height: 64px;
+            box-sizing: border-box;
+            padding: 24px;
+            margin-top: 24px;
+            border-radius: 5px;
+            background-color: colors.$brand-lightBrown;
+            font-family: fonts.$primary-font;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 0px;
+            &:hover{
+                background-color: darken(colors.$brand-lightBrown, 5%);
+                cursor: pointer;
+                
+            }
+            &:focus{
+                outline: none;
+                border: 2px solid black;
+                box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.2);
+                transition: box-shadow 0.3s ease, border 0.1s ease;
+            }
+        }
+    }
+}

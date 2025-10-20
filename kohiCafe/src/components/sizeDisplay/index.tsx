@@ -2,8 +2,6 @@ import coffeeSmall from "../../assets/coffee-small.png";
 import coffeeMid from "../../assets/coffee-medium.png";
 import coffeeLg from "../../assets/coffee-large.png";
 import "./styles.scss";
-import { FaWeight } from "react-icons/fa";
-import { useState } from "react";
 
 type SizesProps = {
   size: String;

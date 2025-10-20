@@ -134,8 +134,14 @@ h1 {
 }
 .checkout-card-container {
   max-height: 100%;
+  margin-bottom: 10px;
+  
+}
+
+.order-modal__description-container--checkout{
   overflow: auto;
 }
+
 
 .checkout-card {
   display: flex;

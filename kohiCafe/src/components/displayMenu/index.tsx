@@ -34,7 +34,7 @@ export default function DisplayMenu({ menuTitle, itemObjects }: DisplayMenu) {
             
           </>
         ))}
-        {modalOpen && selectedItem && <OrderModal Item={selectedItem} />}
+        {modalOpen && selectedItem && <OrderModal item={selectedItem} />}
       </div>
     </div>
   );

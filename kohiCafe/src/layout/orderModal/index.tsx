@@ -1,35 +1,32 @@
 import "./styles.scss";
 import displayCoffee from "../../assets/displayCoffee.png";
-
 import { FaXmark } from "react-icons/fa6";
-
 import { useEffect, useState } from "react";
 
 import CartsMenu from "../../components/CartsMenu";
-import type {  Item } from "../../types/Item";
+import type { Item } from "../../types/Item";
 import ConfirmOrderMenu from "../../components/ConfirmOrderMenu";
 import { useModal } from "../../modalContext";
 import useFetchAddons from "../../hooks/useFetchAddons";
 import OrderModalNavigation from "./orderModalNavigation";
 import { useCart } from "../../CartContsxt";
 
-
-
-export default function OrderModal({ Item }: { Item: Item }) {
+export default function OrderModal({ item }: { item: Item | null }) {
   const { setModalOpen } = useModal();
-  
-  const [coffeeSize, setCoffeeSize] = useState<number | null>(null);
 
-  const [addOnsQuantity, setAddOnQuantities] = useState<Record<string, number>>(
-    {}
-  );
+  const [coffeeSize, setCoffeeSize] = useState<number | null>(null);
+  const [addOnsQuantity, setAddOnQuantities] = useState<Record<string, number>>({});
   const [currentMenu, setCurrentMenu] = useState<1 | 2 | 3>(1);
-  
   const [checkOutOrderSize] = useState<number>(1);
 
-  const {cart, addToCart} = useCart();
+  const { cart, addToCart } = useCart();
 
-  const fetchedAddons = useFetchAddons(Item.add_ons);
+  // 🛡 Guard: if no item, render nothing
+  if (!item) {
+    return null;
+  }
+
+  const fetchedAddons = useFetchAddons(item.add_ons || []);
 
   useEffect(() => {
     if (fetchedAddons.length > 0) {
@@ -49,8 +46,8 @@ export default function OrderModal({ Item }: { Item: Item }) {
 
   const handleConfirmOrder = (e: React.FormEvent) => {
     e.preventDefault();
-    addToCart(Item, checkOutOrderSize, coffeeSize, addOnsQuantity);
-    console.log(cart)
+    addToCart(item, checkOutOrderSize, coffeeSize, addOnsQuantity);
+    console.log(cart);
     setCurrentMenu(2);
   };
 
@@ -60,7 +57,6 @@ export default function OrderModal({ Item }: { Item: Item }) {
         <div
           className="order-modal__cancel-icon"
           onClick={() => {
-            console.log("clickeddd");
             setModalOpen(false);
           }}
         >
@@ -71,7 +67,7 @@ export default function OrderModal({ Item }: { Item: Item }) {
       <div className="order-modal__content">
         {currentMenu === 1 && (
           <CartsMenu
-            item={Item}
+            item={item}
             displayCoffee={displayCoffee}
             coffeeSize={coffeeSize}
             handleSubmit={handleConfirmOrder}
@@ -85,7 +81,7 @@ export default function OrderModal({ Item }: { Item: Item }) {
           <ConfirmOrderMenu
             displayCoffee={displayCoffee}
             setCurrentMenu={setCurrentMenu}
-            cartItems={cart.cartItems}
+            cartItems={cart?.cartItems ?? []}
           />
         )}
         {currentMenu === 3 && <>3</>}

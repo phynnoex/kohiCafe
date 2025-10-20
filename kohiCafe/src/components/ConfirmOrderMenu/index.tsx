@@ -1,6 +1,6 @@
 import InputCounter from "../InputCounter";
 import type { Item } from "../../types/Item";
-import { useMemo, useState } from "react";
+import { useMemo} from "react";
 import useFetchAddons from "../../hooks/useFetchAddons";
 import { useCart } from "../../CartContsxt";
 

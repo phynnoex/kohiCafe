@@ -1,0 +1,46 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.availabilityDisplay{
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    margin: 50px 100px;
+    height: 75vh;
+    .mapContainer{
+        width: 75%;
+    }
+    .hoursAside{
+        background-color: colors.$brand-green;
+        box-sizing: border-box;
+        width: 25%;
+        padding: 20px 32px;
+        border-left: 1px solid #eee; 
+        color: white;
+        
+        .hoursTitle{
+            font-family: fonts.$primary-font;
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .hoursList{
+            list-style: none;
+            padding: 0;
+            li{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 8px;
+                div{
+                    font-size: 20px;
+                    color: #fff;
+                }
+            }
+        }
+        .location{
+            font-size: 20px;
+            
+        }
+    }
+}
