@@ -12,7 +12,7 @@ import { useModal } from "../../modalContext";
 import useFetchAddons from "../../hooks/useFetchAddons";
 import OrderModalNavigation from "./orderModalNavigation";
 import { useCart } from "../../CartContsxt";
-
+import CheckoutOrderMenu from "../../components/checkoutOrderMenu";
 
 
 export default function OrderModal({ Item }: { Item: Item }) {
@@ -88,7 +88,18 @@ export default function OrderModal({ Item }: { Item: Item }) {
             cartItems={cart.cartItems}
           />
         )}
-        {currentMenu === 3 && <>3</>}
+        {currentMenu === 3 && (
+          <CheckoutOrderMenu
+            // item={item}
+            // displayCoffee={displayCoffee}
+            // coffeeSize={coffeeSize}
+            // handleSubmit={handleConfirmOrder}
+            // setCoffeeSize={setCoffeeSize}
+            // addOns={fetchedAddons}
+            // addOnsQuantity={addOnsQuantity}
+            // updateHandler={updateHandler}
+          />
+        )}
       </div>
     </div>
   );
