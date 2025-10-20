@@ -1,0 +1,44 @@
+@use "../../styles/fonts";
+@use "../../styles/colors/colors";
+
+.order-modal__description-container--payment {
+    background-color: colors.$brand-lightBrown;
+}
+
+.order-modal__image--display-payment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .card-image{
+        z-index: 1000;
+    }
+}
+
+.payment-receipt-container {
+    display: flex;
+    flex-direction: column;
+    background-color: purple;
+    margin-top: -150px;
+    width: 70%;
+    border-radius: 15px;
+
+    &__payment-totals {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: end;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 20px;
+        height: 300px;
+
+
+    }
+}
+
+.sub__flex {
+    display: flex;
+    justify-content: space-between;
+    width: inherit;
+}

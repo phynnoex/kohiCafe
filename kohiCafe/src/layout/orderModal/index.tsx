@@ -10,8 +10,10 @@ import { useModal } from "../../modalContext";
 import useFetchAddons from "../../hooks/useFetchAddons";
 import OrderModalNavigation from "./orderModalNavigation";
 import { useCart } from "../../CartContsxt";
+import CheckoutOrderMenu from "../../components/checkoutOrderMenu";
 
-export default function OrderModal({ item }: { item: Item | null }) {
+
+export default function OrderModal({ Item }: { Item: Item }) {
   const { setModalOpen } = useModal();
 
   const [coffeeSize, setCoffeeSize] = useState<number | null>(null);
@@ -84,7 +86,18 @@ export default function OrderModal({ item }: { item: Item | null }) {
             cartItems={cart?.cartItems ?? []}
           />
         )}
-        {currentMenu === 3 && <>3</>}
+        {currentMenu === 3 && (
+          <CheckoutOrderMenu
+            // item={item}
+            // displayCoffee={displayCoffee}
+            // coffeeSize={coffeeSize}
+            // handleSubmit={handleConfirmOrder}
+            // setCoffeeSize={setCoffeeSize}
+            // addOns={fetchedAddons}
+            // addOnsQuantity={addOnsQuantity}
+            // updateHandler={updateHandler}
+          />
+        )}
       </div>
     </div>
   );
