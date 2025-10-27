@@ -3,7 +3,7 @@ import type { Item } from "../../types/Item";
 import FeaturedCard from "../featureCards";
 import "./styles.scss";
 import { useEffect, useState } from "react";
-import { getfeaturedItems, getItembyId, getItemsbyCategories } from "../../feautures/Specials";
+import { getfeaturedItems, getItembyId,} from "../../feautures/Specials";
 import { useModal } from "../../modalContext";
 import OrderModal from "../../layout/orderModal";
 

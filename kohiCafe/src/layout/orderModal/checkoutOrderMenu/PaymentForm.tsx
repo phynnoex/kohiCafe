@@ -55,10 +55,7 @@ export default function PaymentForm({
     }
   };
 
-  const handleCardHolderNameChange = (value: string) => {
 
-    setCardHolderName(value);
-  }
 
   const handleCVVChange = (value: string) => {
     // Remove non-digit characters

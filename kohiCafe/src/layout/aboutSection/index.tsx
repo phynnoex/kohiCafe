@@ -1,5 +1,4 @@
 import "./styles.scss";
-import aboutImage from "../../assets/shop-image.png";
 
 export default function AboutSection() {
   return (

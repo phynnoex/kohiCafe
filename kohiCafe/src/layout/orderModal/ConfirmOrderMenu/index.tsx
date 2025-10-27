@@ -1,8 +1,7 @@
-import InputCounter from "../../../components/InputCounter";
 import type { Item } from "../../../types/Item";
 import { useMemo } from "react";
 import useFetchAddons from "../../../hooks/useFetchAddons";
-import { useCart } from "../../../CartContsxt";
+
 import CheckoutCard from "./checkoutCard";
 
 type CartItems = {

@@ -24,7 +24,7 @@ export default function InputCounter({addOnQuantity, onSelect}:InputCounterProps
         className="addOnInput__Button"
         disabled={addOnQuantity > 9}
         type="button"
-        onClick={(e) => {
+        onClick={() => {
           onSelect(addOnQuantity + 1);
         }}
       >

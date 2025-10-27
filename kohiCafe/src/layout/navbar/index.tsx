@@ -3,9 +3,7 @@ import "./styles.scss";
 import logo from "../../assets/logo.png";
 import {
   FaBars,
-  FaHamburger,
   FaHome,
-  FaPhone,
   FaPhoneAlt,
 } from "react-icons/fa";
 import { useState } from "react";
