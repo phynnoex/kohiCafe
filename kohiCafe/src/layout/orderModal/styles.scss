@@ -2,11 +2,11 @@
 @use "../../styles/colors/colors";
 
 .order-modal {
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   width: 100vw;
-  z-index: 2;
+  z-index: 10000;
 
   &__cancel {
     padding: 20px;
@@ -52,79 +52,6 @@
     background-color: white;
     opacity: 1;
   }
-  &__content-container {
-    display: flex;
-    height: 100%;
-    gap: 20px;
-    z-index: 12;
-    font-size: 18px;
-  }
-  &__image {
-    background-color: colors.$brand-green;
-    width: 50%;
-    display: flex;
-  }
-  &__image--display {
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  &__confirm-button{
-    width: 100%;
-    padding: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: none;
-    background-color: colors.$brand-brown;
-    color: white;
-    font-family: fonts.$primary-font;
-    font-size: 17px;
-    cursor: pointer;
-    &:hover{
-      box-shadow: 2px 2px 5px  rgb(114, 114, 114);
-    }
-  }
-  &__image--checkout {
-    flex-direction: column;
-    align-items: center;
-    h1 {
-      color: colors.$brand-lightBrown;
-      text-transform: uppercase;
-      font-size: 64px;
-    }
-  }
-  &__order-description-container {
-    width: 50%;
-    min-height: 100%;
-  }
-  &__description-container--checkout {
-    display: flex;
-    flex-direction: column;
-  }
-  &__order-title {
-    h2 {
-      font-size: 40px;
-      font-weight: 700;
-      font-family: fonts.$primary-font;
-      width: 60%;
-      padding: 0px;
-      margin: 0px;
-    }
-  }
-  &__calories {
-    padding: 0px;
-    margin: 0px;
-  }
-
-  &__order-description {
-    margin-top: 40px;
-    font-size: 18px;
-  }
-  &__order-options {
-    margin-top: 20px;
-    height: 100%;
-    overflow-y: auto;
-  }
 }
 
 h1 {
@@ -149,6 +76,9 @@ h1 {
   padding: 10px;
   gap: 10px;
   height: max-content;
+  &__title{
+    font-weight: 700;
+  }
   &__description {
     width: 100%;
     display: flex;
@@ -156,6 +86,9 @@ h1 {
     justify-content: space-between;
   }
   &__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     background-color: colors.$brand-green;
     img {
@@ -188,12 +121,17 @@ h1 {
   margin-top: auto;
   &__card {
     background-color: rgb(253, 236, 199);
-    padding: 7px 10px;
+    padding: 14px 16px;
     font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__card-price{
+    font-weight: 500;
   }
   &__card--total {
     background-color: colors.$brand-lightBrown;
-    padding: 10px;
+    padding: 14px 16px;
     font-weight: 700;
   }
 }
@@ -201,7 +139,7 @@ h1 {
   margin-top: 10px;
   display: flex;
   gap: 10px;
-  
+
   &__back {
     width: 20%;
     padding: 10px;
@@ -219,5 +157,23 @@ h1 {
     color: white;
     font-size: 18px;
     font-family: fonts.$primary-font;
+  }
+}
+
+// mobile version
+@media (max-width: 768px) {
+  .order-modal {
+    position: fixed;
+    background-color: rgb(204, 0, 0);
+    height: 100vh;
+    &__navigation{
+      display: none;
+    }
+    &__content {
+      overflow-y: scroll;
+      width: 90vw;
+      background-color: white;
+      height: 95vh;
+    }
   }
 }

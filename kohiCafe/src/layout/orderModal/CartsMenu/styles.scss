@@ -1,0 +1,132 @@
+@use "../../../styles/fonts";
+@use "../../../styles/colors/colors";
+
+.order-modal {
+  &__content-container {
+    display: flex;
+    height: 100%;
+    gap: 20px;
+    z-index: 12;
+    font-size: 18px;
+  }
+  &__image {
+    background-color: colors.$brand-green;
+    width: 50%;
+    display: flex;
+  }
+  &__image--display {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  &__confirm-button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: colors.$brand-brown;
+    color: white;
+    font-family: fonts.$primary-font;
+    font-size: 17px;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 2px 2px 5px rgb(114, 114, 114);
+    }
+  }
+  &__image--checkout {
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      color: colors.$brand-lightBrown;
+      text-transform: uppercase;
+      font-size: 64px;
+    }
+  }
+  &__order-description-container {
+    width: 50%;
+    min-height: 100%;
+  }
+  &__description-container--checkout {
+    display: flex;
+    flex-direction: column;
+  }
+  &__order-title {
+    h2 {
+      font-size: 40px;
+      font-weight: 700;
+      font-family: fonts.$primary-font;
+      width: 60%;
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+  &__calories {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  &__order-description {
+    margin-top: 40px;
+    font-size: 18px;
+  }
+  &__order-options {
+    margin-top: 20px;
+    height: 100%;
+    overflow-y: none;
+  }
+}
+
+
+// mobile version
+
+@media (max-width: 768px) {
+  .order-modal .order-modal__image,
+  .order-modal__order-description-container {
+    width: 100%;
+    height: max-content;
+  }
+  .order-modal__image {
+    height: 40vh;
+    border-radius: 10px;
+    margin: 20px 0px;
+  }
+ 
+}
+
+@media (max-width: 768px) {
+  .order-modal {
+    
+    &__content-container {
+      flex-direction: column;
+    }
+    &__cancel {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: black;
+      width: 24px;
+      height: 22px;
+      z-index: 10;
+      border-radius: 8px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      text-align: center;
+    }
+    &__navigation {
+      margin-left: calc(88vw);
+    }
+    &__image {
+      display: none;
+    }
+    &__order-description-container {
+      width: 100%;
+    }
+    &__image {
+      background-color: yellow;
+    }
+  }
+}

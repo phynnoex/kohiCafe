@@ -50,13 +50,12 @@ export default function Footer() {
               <Link to="/contact">Contact</Link>
             </li>
           </ul>
-        </div>
-
-        <div className="footer__application">
-          <p className="footer__application-text">
-            Wanna work with us <br /> Get in Touch
-          </p>
-          <Button buttonType="card" text="apply here" onClick={() => {}} />
+          <div className="footer__application">
+            <p className="footer__application-text">
+              Wanna work with us Get in Touch
+            </p>
+            <Button buttonType="card" text="Apply here" onClick={() => {}} />
+          </div>
         </div>
       </div>
       <div className="footer__copyright">

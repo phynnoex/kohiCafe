@@ -12,6 +12,10 @@
   text-transform: capitalize;
   color: white;
 
+  .mobile-menu {
+    display: none;
+  }
+
   nav {
     ul {
       display: flex;
@@ -22,14 +26,82 @@
         a {
           text-decoration: none;
           color: white;
-          &:hover{
+          &:hover {
             text-decoration: underline;
           }
-          &::after{
+          &::after {
             text-decoration: underline;
           }
-        } 
+        }
       }
+    }
+  }
+}
+
+.mobile-menu-dropdown {
+  display: none;
+}
+
+// mobile screen
+
+@media (max-width: 768px) {
+  .navbar {
+    .mobile-menu {
+      display: block;
+      font-size: 30px;
+    }
+    .brand-logo {
+      img {
+        height: 30px;
+      }
+    }
+    padding: 0px 20px;
+    nav {
+      display: none;
+    }
+  }
+  .mobile-menu-dropdown {
+    display: none;
+    background-color: colors.$brand-green;
+
+    ul {
+      margin: 0;
+      padding: 8px;
+    }
+
+    li {
+      list-style: none;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      color: white;
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        text-decoration: none;
+        padding: 16px;
+        width: 100%;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: colors.$brand-brown;
+        }
+
+        &.active-link {
+          background: linear-gradient(to bottom, rgba(#FFD890, 0.176), rgba(#998256, 0.26));
+          border-radius: 8px;
+          border-bottom: 2px solid rgba(248, 248, 248, 0.45);
+
+        }
+      }
+    }
+
+    &.active {
+      display: block;
     }
   }
 }

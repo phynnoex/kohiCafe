@@ -12,15 +12,15 @@ export default function AboutSection() {
             <p>Our journey began with a passion for Japanese coffee culture and a desire to share its rich traditions with our community. Inspired by the precision and artistry of Japanese brewing techniques, </p>
           </div>
           <div className="rightDescription"></div> */}
-          <img src={aboutImage} alt="" />
+          <div className="img-container" ></div>
           <p className="descriptionText">
-            Our journey began with a passion for Japanese coffee culture and a
+            <span>O</span>ur journey began with a passion for Japanese coffee culture and a
             desire to share its rich traditions with our community. Inspired by
             the precision and artistry of Japanese brewing techniques, we set
             out to create a space where every cup tells a story. At our café, we
             take pride in sourcing high-quality beans, crafting hand-dripped
             pour-overs, and serving beloved Japanese favorites like matcha
-            lattes and hojicha. But beyond the coffee, our mission is simple—to
+            lattes and hojicha. <br /> <br />But beyond the coffee, our mission is simple to
             create a warm, welcoming space where people can connect, unwind, and
             experience a little piece of Japan. Whether you're a coffee
             enthusiast or just looking for a cozy spot to relax, we invite you

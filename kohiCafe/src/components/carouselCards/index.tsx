@@ -3,7 +3,7 @@ import type { Item } from "../../types/Item";
 import FeaturedCard from "../featureCards";
 import "./styles.scss";
 import { useEffect, useState } from "react";
-import { getItemsbyCategories } from "../../feautures/Specials";
+import { getfeaturedItems, getItembyId, getItemsbyCategories } from "../../feautures/Specials";
 import { useModal } from "../../modalContext";
 import OrderModal from "../../layout/orderModal";
 
@@ -18,16 +18,30 @@ export default function Carousel() {
     setModalOpen(true);
   };
 
-  
-
   useEffect(() => {
-    async function fetchCards() {
-      const response = await getItemsbyCategories("EIrOjqRQWVo7NUbRF0pw");
-      setCards(response);
-    }
-    fetchCards();
-  }, []);
+  async function fetchCards() {
+    try {
+      const featuredIds = await getfeaturedItems();
+      
+      // Fetch all item data in parallel
+      const featuredItems = await Promise.all(
+        featuredIds.map(async (id) => {
+          const item = await getItembyId(id);
+          return item;
+        })
+      );
 
+      // Filter out any null or undefined items
+      const validItems = featuredItems.filter((item): item is Item => !!item);
+
+      setCards(validItems);
+    } catch (error) {
+      console.error("Error fetching featured cards:", error);
+    }
+  }
+
+  fetchCards();
+}, []);
 
 
   const [startIndex, setStartIndex] = useState(0);
@@ -52,12 +66,35 @@ export default function Carousel() {
 
   return (
     <div className="carousel">
-      <button className="navButton" onClick={handleLeft} disabled={!canGoLeft}>
-        <FaAngleLeft />
-      </button>
+      <div className="carousel-non-mobile">
+        <button
+          className="navButton"
+          onClick={handleLeft}
+          disabled={!canGoLeft}
+        >
+          <FaAngleLeft />
+        </button>
 
-      <div className="cardContainer">
-        {visibleItems.map((card, index) => (
+        <div className="cardContainer">
+          {visibleItems.map((card, index) => (
+            <FeaturedCard
+              key={index}
+              card={card}
+              onClick={() => handleItemClick(card)}
+            />
+          ))}
+        </div>
+
+        <button
+          className="navButton"
+          onClick={handleRight}
+          disabled={!canGoRight}
+        >
+          <FaAngleRight />
+        </button>
+      </div>
+      <div className="carousel-mobile">
+        {cards.map((card, index) => (
           <FeaturedCard
             key={index}
             card={card}
@@ -66,13 +103,6 @@ export default function Carousel() {
         ))}
       </div>
 
-      <button
-        className="navButton"
-        onClick={handleRight}
-        disabled={!canGoRight}
-      >
-        <FaAngleRight />
-      </button>
       {modalOpen && selectedItem && <OrderModal item={selectedItem} />}
     </div>
   );

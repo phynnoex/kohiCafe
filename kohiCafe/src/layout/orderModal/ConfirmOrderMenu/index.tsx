@@ -1,9 +1,9 @@
-import InputCounter from "../InputCounter";
-import type { Item } from "../../types/Item";
-import { useMemo} from "react";
-import useFetchAddons from "../../hooks/useFetchAddons";
-import { useCart } from "../../CartContsxt";
-
+import InputCounter from "../../../components/InputCounter";
+import type { Item } from "../../../types/Item";
+import { useMemo } from "react";
+import useFetchAddons from "../../../hooks/useFetchAddons";
+import { useCart } from "../../../CartContsxt";
+import CheckoutCard from "./checkoutCard";
 
 type CartItems = {
   id: string;
@@ -17,6 +17,8 @@ type ConfirmOrderMenuProps = {
   displayCoffee: string;
   setCurrentMenu: React.Dispatch<React.SetStateAction<1 | 2 | 3>>;
   cartItems: CartItems[];
+  setSubTotalPrice: React.Dispatch<React.SetStateAction<number>>;
+  setDeliveryCostPrice: React.Dispatch<React.SetStateAction<number>>;
 };
 
 // get the cart items array
@@ -28,13 +30,9 @@ export default function ConfirmOrderMenu({
   displayCoffee,
   setCurrentMenu,
   cartItems,
+  setSubTotalPrice,
+  setDeliveryCostPrice,
 }: ConfirmOrderMenuProps) {
- 
-
-
-
-  const { removeFromCart, updateItemQuantity } = useCart();
-
   const addOnCategories = useMemo(
     () => cartItems.map((i) => i.item.add_ons).flat(),
     [cartItems]
@@ -67,6 +65,9 @@ export default function ConfirmOrderMenu({
     { subTotal: 0, deliveryCost: 0 }
   );
 
+  setSubTotalPrice(subTotal);
+  setDeliveryCostPrice(deliveryCost);
+
   return (
     <>
       <div className="order-modal__content-container">
@@ -78,56 +79,11 @@ export default function ConfirmOrderMenu({
           <h1>Confirm Order</h1>
           {cartItems.length > 0 ? (
             cartItems.map((cartItem) => (
-              <div className="checkout-card-container">
-                <div className="checkout-card">
-                  <div className="checkout-card__image">
-                    <img src={displayCoffee} alt="" />
-                  </div>
-                  <div className="checkout-card__description">
-                    <div className="checkout-card__top-description">
-                      <div className="checkout-card__title">
-                        {cartItem.item.item_name}
-                      </div>
-                      <div className="checkout-card__size">
-                        <span>
-                          Size :{cartItem.coffeeSize == 0 && " small"}{" "}
-                          {cartItem.coffeeSize == 1 && " medium"}{" "}
-                          {cartItem.coffeeSize == 2 && " large"}{" "}
-                          {cartItem.coffeeSize == 3 && " ext Large"}
-                        </span>
-                      </div>
-                      <div className="checkout-card__addons">
-                        <span>Addons: </span>
-                        {Object.entries(cartItem.addOnsQuantity).map(
-                          ([name, qty]) => (
-                            <span>
-                              {qty} {name}s{" "}
-                            </span>
-                          )
-                        )}
-                      </div>
-                    </div>
-                    <div className="checkout-card__bottom-action">
-                      <div className="checkout-card__size-container">
-                        <InputCounter
-                          addOnQuantity={cartItem.quantity}
-                          onSelect={(qty: number) =>
-                            updateItemQuantity(cartItem.id, qty)
-                          }
-                        />
-                      </div>
-                      <div className="checkout-card__remove-container">
-                        <button
-                          className="checkout-card__remove-button"
-                          onClick={() => removeFromCart(cartItem.id)}
-                        >
-                          Remove
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <CheckoutCard
+                key={cartItem.id}
+                displayCoffee={displayCoffee}
+                cartItem={cartItem}
+              />
             ))
           ) : (
             <span>No items in cart</span>
@@ -137,25 +93,25 @@ export default function ConfirmOrderMenu({
             <div className="checkout-summary__card">
               <div className="checkout-summary__card-title">Sub-Total</div>
               <div className="checkout-summary__card-price">
-                {subTotal.toFixed(2)}
+                ${subTotal.toFixed(2)}
               </div>
             </div>
             <div className="checkout-summary__card">
               <div className="checkout-summary__card-title">Delivery cost</div>
               <div className="checkout-summary__card-price">
-                {deliveryCost.toFixed(2)}
+                ${deliveryCost.toFixed(2)}
               </div>
             </div>
             <div className="checkout-summary__card">
               <div className="checkout-summary__card-title">HST/GST</div>
               <div className="checkout-summary__card-price">
-                {(subTotal * 0.13).toFixed(2)}
+                ${(subTotal * 0.13).toFixed(2)}
               </div>
             </div>
             <div className="checkout-summary__card checkout-summary__card--total">
               <div className="checkout-summary__card-title">Total</div>
               <div className="checkout-summary__card-price">
-                {(subTotal + deliveryCost + subTotal * 0.13).toFixed(2)}
+                ${(subTotal + deliveryCost + subTotal * 0.13).toFixed(2)}
               </div>
             </div>
           </div>

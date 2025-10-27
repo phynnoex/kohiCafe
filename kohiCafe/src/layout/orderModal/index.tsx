@@ -3,23 +3,26 @@ import displayCoffee from "../../assets/displayCoffee.png";
 import { FaXmark } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 
-import CartsMenu from "../../components/CartsMenu";
+import CartsMenu from "./CartsMenu";
 import type { Item } from "../../types/Item";
-import ConfirmOrderMenu from "../../components/ConfirmOrderMenu";
+import ConfirmOrderMenu from "./ConfirmOrderMenu";
 import { useModal } from "../../modalContext";
 import useFetchAddons from "../../hooks/useFetchAddons";
 import OrderModalNavigation from "./orderModalNavigation";
 import { useCart } from "../../CartContsxt";
-import CheckoutOrderMenu from "../../components/checkoutOrderMenu";
+import CheckoutOrderMenu from "./checkoutOrderMenu";
 
-
-export default function OrderModal({ Item }: { Item: Item }) {
+export default function OrderModal({ item }: { item: Item }) {
   const { setModalOpen } = useModal();
 
   const [coffeeSize, setCoffeeSize] = useState<number | null>(null);
-  const [addOnsQuantity, setAddOnQuantities] = useState<Record<string, number>>({});
+  const [addOnsQuantity, setAddOnQuantities] = useState<Record<string, number>>(
+    {}
+  );
   const [currentMenu, setCurrentMenu] = useState<1 | 2 | 3>(1);
   const [checkOutOrderSize] = useState<number>(1);
+  const [subTotalPrice, setSubTotalPrice] = useState<number>(0);
+  const [deliveryCostPrice, setDeliveryCostPrice] = useState<number>(0);
 
   const { cart, addToCart } = useCart();
 
@@ -84,10 +87,14 @@ export default function OrderModal({ Item }: { Item: Item }) {
             displayCoffee={displayCoffee}
             setCurrentMenu={setCurrentMenu}
             cartItems={cart?.cartItems ?? []}
+            setSubTotalPrice={setSubTotalPrice}
+            setDeliveryCostPrice={setDeliveryCostPrice}
           />
         )}
         {currentMenu === 3 && (
           <CheckoutOrderMenu
+            subTotalPrice={subTotalPrice}
+            deliveryCostPrice={deliveryCostPrice}
             // item={item}
             // displayCoffee={displayCoffee}
             // coffeeSize={coffeeSize}

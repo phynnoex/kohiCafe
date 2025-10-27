@@ -6,6 +6,8 @@ import {
   query,
   where,
   documentId,
+  doc,
+  getDoc,
 } from "firebase/firestore";
 import type { MenuCategory, AddOn, Item } from "../../types/Item";
 
@@ -53,6 +55,23 @@ export const getItems = async (): Promise<Item[]> => {
   }
 };
 
+export const getItembyId = async (itemId: string): Promise<Item | null> => {
+  try {
+    const docRef = doc(db, "Items", itemId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      return docSnap.data() as Item;
+    } else {
+      console.warn("No such document!");
+      return null;
+    }
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 export const getCategories = async (): Promise<MenuCategory[]> => {
   try {
     const querySnapshot = await getDocs(collection(db, "MenuCategories"));
@@ -78,6 +97,24 @@ export const getItemsbyCategories = async (
       ...doc.data(),
     })) as Item[];
     return fetchedItems;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+export const getfeaturedItems = async (): Promise<string[]> => {
+  try {
+    const docRef = doc(db, "featuredCollection", "NxYoUIkxqldXgFwJrjsO");
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      return data.featuredId as string[];
+    } else {
+      console.warn("No such document!");
+      return [];
+    }
   } catch (error) {
     console.error(error);
     throw error;

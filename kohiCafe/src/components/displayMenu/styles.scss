@@ -13,3 +13,17 @@
         width: 400px;
     }
 }
+
+// mobile version
+@media (max-width: 768px) {
+    .display-menu{
+        padding: 10px 20px;
+        &__items-container{
+            display: flex
+        }
+        &__title{
+            font-size: 28px;
+            width: 70%;
+        }
+    }
+}

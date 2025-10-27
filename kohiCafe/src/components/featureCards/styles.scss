@@ -1,23 +1,46 @@
 @use "../../styles/fonts";
 @use "../../styles/colors/colors";
 
-.featureCard{
-    width: 300px;
-    background-color: colors.$brand-green;
-    border-radius: 20px;
-    .cardImage{
-        img{
-            width: 100%;
-            border-radius: 20px 20px 0px 0px;
-        }
+.featureCard {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 320px;
+  background-color: colors.$brand-green;
+  border-radius: 20px;
+  color: white;
+  .cardImage {
+    height: 60%;
+    background-color: aliceblue;
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 20%;
+      border-radius: 20px 20px 0px 0px;
     }
-    .cardDescription{
-        padding: 10px;
-        .descriptionTitle{
-            font-family: fonts.$primary-font;
-            font-weight: 500;
-            font-size: 20px;
-        }
-        
+  }
+  .cardDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 40%;
+    padding: 10px;
+    .descriptionTitle {
+      font-family: fonts.$primary-font;
+      font-weight: 500;
+      font-size: 20px;
     }
+  }
+}
+
+// mobile version
+@media (max-width: 768px) {
+  .card-button {
+    width: 100%;
+    font-size: 16px;
+    height: 40px;
+  }
 }

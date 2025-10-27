@@ -5,6 +5,8 @@ import type { Item } from "../../types/Item";
 import { useEffect, useState } from "react";
 import "./styles.scss";
 import { getCategories, getItemsbyCategories } from "../../feautures/Specials";
+import { useMediaQuery } from "@uidotdev/usehooks";
+import MobileMenuSection from "./mobileMenu";
 
 export default function MenuSection() {
   const [categories, setCategories] = useState<MenuCategory[]>([]);
@@ -36,13 +38,15 @@ export default function MenuSection() {
     })();
   }, [currentIndex]);
 
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   const handClickCategory = (index: number) => {
     console.log(index);
     setCurrentIndex(index);
   };
   return (
     <>
-      <div className="menuSection">
+      {isMobile ? <MobileMenuSection categories={categories}/> : <div className="menuSection">
         <Aside
           categories={categories}
           handleClick={handClickCategory}
@@ -52,7 +56,8 @@ export default function MenuSection() {
           menuTitle={categories[currentIndex]?.category_title}
           itemObjects={items}
         />
-      </div>
+      </div>}
+      
     </>
   );
 }
