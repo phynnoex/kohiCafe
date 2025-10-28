@@ -3,13 +3,15 @@
 
 .addOnInput{
     &__label{
-        font-weight: 700;
+        font-weight: 500;
+        text-transform: capitalize;
+        margin-top: 12px;
         
     }
     &__field{
         background-color: bisque;
         padding: 20px;
-        margin-top: 10px;
+        margin-top: 12px;
         border-radius: 5px;
         display: flex;
         justify-content: space-between;

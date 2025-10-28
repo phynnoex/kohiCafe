@@ -94,3 +94,31 @@
         }
     }
 }
+
+// mobile screen
+@media (max-width: 768px) {
+    .contactFormContainer{
+        margin: 0px;
+        padding: 10px;
+        .contactFormHeading{
+            h2{
+                font-size: 24px;
+            }
+        }
+        .contactForm{
+            gap: 10px;
+            .formGroup{
+                min-width: 100%;
+                input{
+                    height: 56px;
+                }
+                label{
+                    font-size: 18px;
+                }
+            }
+            button{
+                width: 100%;
+            }
+        }
+    }
+}

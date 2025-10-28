@@ -2,6 +2,7 @@ import "./styles.scss";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { useMediaQuery } from "@uidotdev/usehooks";
 // Fix default marker icon issue in Leaflet + Webpack/Vite
 const markerIcon = new L.Icon({
   iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
@@ -11,8 +12,9 @@ const markerIcon = new L.Icon({
 });
 
 export default function MapComponent() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   return (
-    <div style={{ height: "75vh", width: "100%" }}>
+    <div style={{ height: isMobile ? "65vh" : "75vh", width: "100%" }}>
       <MapContainer
         center={[42.98713769710642, -81.24508836480481]} // Lagos coords
         zoom={13}

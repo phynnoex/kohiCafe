@@ -63,7 +63,7 @@ export default function ContactForm() {
       </div>
       <form className="contactForm" onSubmit={handleSubmit}>
         <div className="formGroup" style={{flex: "0 0 calc(50% - 10px)"}}>
-          <label htmlFor="firstname">First Name</label>
+          <label htmlFor="firstname">Firstname</label>
           <input
             type="text"
             id="firstname"
@@ -77,7 +77,7 @@ export default function ContactForm() {
           )}
         </div>
         <div className="formGroup" style={{flex: "0 0 calc(50% - 10px)"}}>
-          <label htmlFor="lastname">Last Name</label>
+          <label htmlFor="lastname">Lastname</label>
           <input
             type="text"
             id="lastname"

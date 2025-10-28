@@ -1,4 +1,13 @@
 import { useState } from "react";
+import CardChoice from "./CardChoice/CardChoice";
+
+type CardChoiceType = {
+  id: number; 
+  name: string;
+  img: string;
+};
+
+
 
 type PaymentFormProps = {
   cardHolderName: string;
@@ -9,6 +18,8 @@ type PaymentFormProps = {
   setExpiryDate: React.Dispatch<React.SetStateAction<string>>;
   cvv: string;
   setCvv: React.Dispatch<React.SetStateAction<string>>;
+  cardChoices: CardChoiceType[]
+  setSelectedChoiceId: React.Dispatch<React.SetStateAction<number | null>>;
 };
 
 type ErrorMessageProp = {
@@ -27,6 +38,8 @@ export default function PaymentForm({
   setExpiryDate,
   cvv,
   setCvv,
+  cardChoices,
+  setSelectedChoiceId
 }: PaymentFormProps) {
   const [errorMessage, setErrorMessage] = useState<ErrorMessageProp>({
     cardHolderName: [],
@@ -34,6 +47,8 @@ export default function PaymentForm({
     expiryDate: [],
     cvv: [],
   });
+
+
 
   const handleInputchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -55,13 +70,11 @@ export default function PaymentForm({
     }
   };
 
-
-
   const handleCVVChange = (value: string) => {
     // Remove non-digit characters
     const digitsOnly = value.replace(/\D/g, "");
     setCvv(digitsOnly);
-  }
+  };
 
   const handleCardNumberChange = (value: string) => {
     let valuee = value.replace(/\D/g, "");
@@ -77,7 +90,7 @@ export default function PaymentForm({
 
     const formattedDate = digitsOnly.match(/.{1,2}/g)?.join("/") || "";
     setExpiryDate(formattedDate);
-  }
+  };
 
   const validateForm = () => {
     let errors: ErrorMessageProp = {
@@ -119,8 +132,11 @@ export default function PaymentForm({
     }
   };
 
+
+
   return (
     <form className="cards_Form" onSubmit={handleSubmit}>
+      <CardChoice cardChoices={cardChoices} handleSelectCard={setSelectedChoiceId} />
       <div className="cards_Form__card_type_container"></div>
       <label htmlFor="card-holder-name">
         <b>Card Holder Name</b>
@@ -215,7 +231,6 @@ export default function PaymentForm({
       <button className="cards_Form__submit-button" type="submit">
         Pay Now
       </button>
-      
     </form>
   );
 }

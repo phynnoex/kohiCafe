@@ -27,6 +27,7 @@
   &__payment-totals {
     background-color: #fff4e0;
     display: flex;
+    gap: 4px;
     flex-direction: column;
     justify-content: end;
     align-items: end;
@@ -36,6 +37,19 @@
     height: 300px;
     border-radius: 20px;
     height: 70%;
+    .left-price {
+      color: rgba(0, 0, 0, 0.7);
+    }
+    .right-price {
+      font-weight: 700;
+      width: 80px;
+    }
+  }
+  &__receipt-icon {
+    margin-right: 10px;
+    img {
+      width: 30px;
+    }
   }
   &__dashed-border {
     border: 2px solid transparent;
@@ -83,6 +97,10 @@
   &__card-expiry-cvv{
     display: flex;
     gap: 10px;
+  }
+
+  label{
+    font-size: 16px;
   }
   
   input{

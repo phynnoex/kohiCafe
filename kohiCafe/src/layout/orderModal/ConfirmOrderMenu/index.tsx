@@ -37,6 +37,8 @@ export default function ConfirmOrderMenu({
     [cartItems]
   );
 
+ 
+
   const allAddOns = useFetchAddons(addOnCategories);
 
   const addOnsMap = new Map(allAddOns.map((addOn) => [addOn.name, addOn]));
