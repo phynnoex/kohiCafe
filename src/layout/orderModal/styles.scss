@@ -66,13 +66,11 @@ h1 {
 .checkout-card-container {
   max-height: 100%;
   margin-bottom: 10px;
-  
 }
 
-.order-modal__description-container--checkout{
+.order-modal__description-container--checkout {
   overflow: auto;
 }
-
 
 .checkout-card {
   display: flex;
@@ -80,7 +78,7 @@ h1 {
   padding: 10px;
   gap: 10px;
   height: max-content;
-  &__title{
+  &__title {
     font-weight: 700;
   }
   &__description {
@@ -110,7 +108,7 @@ h1 {
     border-radius: 5px;
     padding: 5px;
   }
-  &__remove-button{
+  &__remove-button {
     padding: 10px 15px;
     border: none;
     background-color: colors.$brand-brown;
@@ -130,7 +128,7 @@ h1 {
     display: flex;
     justify-content: space-between;
   }
-  &__card-price{
+  &__card-price {
     font-weight: 500;
   }
   &__card--total {
@@ -168,16 +166,23 @@ h1 {
 @media (max-width: 768px) {
   .order-modal {
     position: fixed;
+    height: 100dvh;
+    width: 100dvw;
     background-color: rgb(204, 0, 0);
-    height: 100vh;
-    &__navigation{
+    overflow-y: auto;
+    &__navigation {
       display: none;
     }
     &__content {
       overflow-y: scroll;
-      width: 90vw;
+      width: 90dvw;
       background-color: white;
-      height: 95vh;
+      height: 95dvh;
+    }
+    @supports not (height: 100dvh) {
+      height: calc(var(--vh, 1vh) * 100);
     }
   }
 }
+
+
