@@ -11,6 +11,7 @@ import useFetchAddons from "../../hooks/useFetchAddons";
 import OrderModalNavigation from "./orderModalNavigation";
 import { useCart } from "../../CartContsxt";
 import CheckoutOrderMenu from "./checkoutOrderMenu";
+import { createPortal } from "react-dom";
 
 export default function OrderModal({ item }: { item: Item }) {
   const { setModalOpen } = useModal();
@@ -56,7 +57,7 @@ export default function OrderModal({ item }: { item: Item }) {
     setCurrentMenu(2);
   };
 
-  return (
+  return createPortal(
     <div className="order-modal">
       <div className="order-modal__cancel">
         <div
@@ -106,6 +107,7 @@ export default function OrderModal({ item }: { item: Item }) {
           />
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
