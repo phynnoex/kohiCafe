@@ -105,17 +105,17 @@
       top: 20px;
       right: 20px;
       background-color: black;
-      width: 28px;
-      height: 28px;
+      height: max-content;
+      width: max-content;
       z-index: 10;
       border-radius: 8px;
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 18px;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      font-size: 20px;
       text-align: center;
-      padding: 5px;
+      padding: 8px 10px;
     }
     &__navigation {
       margin-left: calc(88vw);
