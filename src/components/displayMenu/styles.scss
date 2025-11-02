@@ -22,8 +22,12 @@
             display: flex
         }
         &__title{
-            font-size: 28px;
+            font-size: 20px;
             width: 70%;
+        }
+        hr{
+            margin-top: 20px;
+            border: 0.1px solid rgb(230, 230, 230);
         }
     }
 }

@@ -46,6 +46,7 @@
 
 @media (max-width: 768px) {
   .navbar {
+    height: 72px;
     .mobile-menu {
       display: block;
       font-size: 30px;
@@ -104,4 +105,8 @@
       display: block;
     }
   }
+}
+
+.menu-toggle {
+  font-size: 24px;
 }

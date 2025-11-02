@@ -105,16 +105,17 @@
       top: 20px;
       right: 20px;
       background-color: black;
-      width: 24px;
-      height: 22px;
+      width: 28px;
+      height: 28px;
       z-index: 10;
       border-radius: 8px;
       color: white;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 28px;
+      font-size: 18px;
       text-align: center;
+      padding: 5px;
     }
     &__navigation {
       margin-left: calc(88vw);

@@ -1,7 +1,7 @@
 @use "../../styles/fonts";
 @use "../../styles/colors/colors";
 
-.menu-item{
+.menu-item {
     height: 150px;
     margin-right: 30px;
     margin-bottom: 30px;
@@ -11,7 +11,8 @@
     align-items: center;
     font-family: fonts.$primary-font;
     gap: 10px;
-    &__image-Container{
+
+    &__image-Container {
         height: 80%;
         width: calc(0.8 * 150px);
         background-color: #D9D9D9;
@@ -20,10 +21,12 @@
         justify-content: center;
         align-items: center;
     }
-    &__image{
+
+    &__image {
         width: 50px;
     }
-    &__title{
+
+    &__title {
         width: 100px;
         text-align: center;
         height: 15%;
@@ -32,7 +35,27 @@
 
 // mobile version
 @media (max-width: 768px) {
-    .menu-item{
+    .menu-item {
+        height: 120px;
         margin: 10px 20px 30px 0px;
+
+        &__image-Container {
+            height: 80%;
+            width: calc(0.8 * 120px);
+        }
+
+        &__image {
+            width: 40px;
+            opacity: 0.8;
+        }
+
+        &__title {
+            width: 100px;
+            text-align: center;
+            height: 15%;
+            font-family: fonts.$secondary-font;
+            font-weight: 500;
+        }
     }
+
 }
