@@ -21,8 +21,11 @@
   }
   &__confirm-button {
     width: 100%;
-    padding: 15px;
-    margin-top: 10px;
+    padding: 24px 15px;
+    border-radius: 8px;
+    margin-top: 16px;
+    border: 1px solid rgba(#FFE5B4, 0.24);
+    box-shadow: 0px 2px 4px 0px rgba(67, 42, 22, 0.5);
     margin-bottom: 10px;
     border: none;
     background-color: colors.$brand-brown;

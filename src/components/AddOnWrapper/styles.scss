@@ -6,9 +6,12 @@
   background-color: colors.$brand-lightBrown;
   margin-top: 30px;
   min-height: 150px;
+  border-radius: 9px;
+  border: 1px solid rgba(78, 55, 12, 0.2);
   &__title-container {
     background-color: colors.$brand-brown;
     padding: 10px 20px;
+    border-radius: 8px 8px 0px 0px;
   }
   &__title{
     color: white;
@@ -17,5 +20,17 @@
   }
   &__content{
     padding: 10px;
+  }
+}
+
+// mobile version
+
+@media (max-width: 768px) {
+  .addOn-wrapper {
+    min-height: 120px;
+    margin-top: 16px;
+    &__title{
+      font-size: 18px;
+    }
   }
 }

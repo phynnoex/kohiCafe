@@ -44,3 +44,21 @@
         };
     }
 }
+
+// mobile version
+@media (max-width: 768px) {
+    .sizeDisplay{
+        &__image-container{
+            height: 40px;
+            width: 40px;
+        }
+        &__description{
+            h4{
+                font-size: 16px;
+            }
+            p{
+                font-size: 14px;
+            };
+        }
+    }
+}

@@ -9,10 +9,10 @@
         
     }
     &__field{
-        background-color: bisque;
+        background-color: #FFE5B4;
         padding: 20px;
         margin-top: 12px;
-        border-radius: 5px;
+        border-radius: 8px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -38,5 +38,29 @@
         border-radius: 50%;
         cursor: pointer;
         border: none;
+    }
+}
+
+// mobile version
+@media (max-width: 768px) {
+    .addOnInput{
+        &__field{
+            padding: 18px;
+        }
+        &__label{
+            font-size: 16px;
+            margin-left: 4px;
+        }
+        &_placeholder{
+            font-size: 16px;
+        }
+        // &__Counter{
+        //     width: 70px;
+        // }
+        // &__Button{
+        //     width: 25px;
+        //     height: 25px;
+        //     font-size: 8px;
+        // }
     }
 }
