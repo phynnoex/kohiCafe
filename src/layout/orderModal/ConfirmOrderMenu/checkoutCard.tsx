@@ -1,6 +1,7 @@
 import type { Item } from "../../../types/Item";
 import InputCounter from "../../../components/InputCounter";
 import { useCart } from "../../../CartContsxt";
+import { FaTrash } from "react-icons/fa";
 
 
 type CartItems = {
@@ -12,13 +13,13 @@ type CartItems = {
 };
 
 type checkOutCardProps = {
-    displayCoffee: string;
-    cartItem: CartItems;
+  displayCoffee: string;
+  cartItem: CartItems;
 }
 
-export default function CheckoutCard({ displayCoffee, cartItem}: checkOutCardProps) {
+export default function CheckoutCard({ displayCoffee, cartItem }: checkOutCardProps) {
 
-      const { removeFromCart, updateItemQuantity } = useCart();
+  const { removeFromCart, updateItemQuantity } = useCart();
   return (
     <div className="checkout-card-container">
       <div className="checkout-card">
@@ -27,24 +28,29 @@ export default function CheckoutCard({ displayCoffee, cartItem}: checkOutCardPro
         </div>
         <div className="checkout-card__description">
           <div className="checkout-card__top-description">
-            <div className="checkout-card__title">
-              {cartItem.item.item_name}
-            </div>
-            <div className="checkout-card__size">
-              <span>
-                <b>Size :</b>
-                {cartItem.coffeeSize == 1 && " medium"}{" "}
-                {cartItem.coffeeSize == 2 && " large"}{" "}
-                {cartItem.coffeeSize == 3 && " ext Large"}
-              </span>
-            </div>
-            <div className="checkout-card__addons">
-              <b>Addons: </b>
-              {Object.entries(cartItem.addOnsQuantity).map(([name, qty]) => (
+            <div className="checkout-card__info">
+              <div className="checkout-card__title">
+                {cartItem.item.item_name}
+              </div>
+              <div className="checkout-card__size">
                 <span>
-                  {qty} {name}s{" "}
+                  <b>Size :</b>
+                  {cartItem.coffeeSize == 1 && " medium"}{" "}
+                  {cartItem.coffeeSize == 2 && " large"}{" "}
+                  {cartItem.coffeeSize == 3 && " ext Large"}
                 </span>
-              ))}
+              </div>
+              <div className="checkout-card__addons">
+                <b>Addons: </b>
+                {Object.entries(cartItem.addOnsQuantity).map(([name, qty]) => (
+                  <span>
+                    {qty} {name}s{" "}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="checkout-card__price">
+              ${(cartItem.item.item_price * cartItem.quantity).toFixed(2)}
             </div>
           </div>
           <div className="checkout-card__bottom-action">
@@ -59,7 +65,7 @@ export default function CheckoutCard({ displayCoffee, cartItem}: checkOutCardPro
                 className="checkout-card__remove-button"
                 onClick={() => removeFromCart(cartItem.id)}
               >
-                Remove
+                <FaTrash />
               </button>
             </div>
           </div>

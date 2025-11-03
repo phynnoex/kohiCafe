@@ -47,7 +47,7 @@ export default function CartsMenu({
             </div>
             <p className="order-modal__calories">110 calories</p>
             {isMobile && (
-              <div className="order-modal__image order-modal__image--display">
+              <div className="order-modal__image-mobile order-modal__image--display">
                 <img src={displayCoffee} alt="" />
               </div>
             )}

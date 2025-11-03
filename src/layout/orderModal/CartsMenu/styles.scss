@@ -9,16 +9,19 @@
     z-index: 12;
     font-size: 18px;
   }
+
   &__image {
     background-color: colors.$brand-green;
     width: 50%;
     display: flex;
   }
+
   &__image--display {
     justify-content: center;
     align-items: center;
     height: 100%;
   }
+
   &__confirm-button {
     width: 100%;
     padding: 24px 15px;
@@ -28,32 +31,38 @@
     box-shadow: 0px 2px 4px 0px rgba(67, 42, 22, 0.5);
     margin-bottom: 10px;
     border: none;
-    background-color: colors.$brand-brown;
+    background: linear-gradient(180deg, #BE7639 0%, colors.$brand-brown 100%);
     color: white;
     font-family: fonts.$primary-font;
     font-size: 17px;
     cursor: pointer;
+
     &:hover {
       box-shadow: 2px 2px 5px rgb(114, 114, 114);
     }
   }
+
   &__image--checkout {
     flex-direction: column;
     align-items: center;
+
     h1 {
       color: colors.$brand-lightBrown;
       text-transform: uppercase;
       font-size: 64px;
     }
   }
+
   &__order-description-container {
     width: 50%;
     min-height: 100%;
   }
+
   &__description-container--checkout {
     display: flex;
     flex-direction: column;
   }
+
   &__order-title {
     h2 {
       font-size: 40px;
@@ -64,6 +73,7 @@
       margin: 0px;
     }
   }
+
   &__calories {
     padding: 0px;
     margin: 0px;
@@ -73,6 +83,7 @@
     margin-top: 40px;
     font-size: 18px;
   }
+
   &__order-options {
     margin-top: 20px;
     height: 100%;
@@ -84,24 +95,48 @@
 // mobile version
 
 @media (max-width: 768px) {
+
   .order-modal .order-modal__image,
   .order-modal__order-description-container {
     width: 100%;
     height: max-content;
   }
-  .order-modal__image {
+
+  .order-modal__image-mobile {
     height: 40vh;
     border-radius: 10px;
     margin: 20px 0px;
+    background-color: colors.$brand-green;
+    width: 100%;
+    display: flex;
+
+    img {
+      height: 50%;
+    }
   }
- 
+
 }
 
 @media (max-width: 768px) {
   .order-modal {
-    
+
     &__content-container {
       flex-direction: column;
+    }
+
+    &__order-title {
+      h2 {
+        font-size: 40px;
+        font-weight: 500;
+        font-family: fonts.$primary-font;
+        width: 60%;
+        padding: 0px;
+        margin: 0px;
+      }
+    }
+    &__calories {
+      font-size: 14px;
+      opacity: 0.8;
     }
     &__cancel {
       position: fixed;
@@ -120,15 +155,19 @@
       text-align: center;
       padding: 8px 10px;
     }
+
     &__navigation {
       margin-left: calc(88vw);
     }
+
     &__image {
       display: none;
     }
+
     &__order-description-container {
       width: 100%;
     }
+
     &__image {
       background-color: yellow;
     }
