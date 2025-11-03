@@ -6,9 +6,10 @@
   background-color: colors.$brand-lightBrown;
   padding: 50px 80px;
 }
+
 .aboutContainer {
   background-color: colors.$brand-green;
-  padding: 20px;
+  padding: 32px;
   border-radius: 30px;
 
   h1 {
@@ -16,6 +17,7 @@
     font-family: fonts.$primary-font;
     text-align: center;
   }
+
   .aboutDescription {
     .img-container {
       background-image: url(../../assets/shop-image.png);
@@ -32,9 +34,12 @@
       line-height: 150%;
       letter-spacing: 1px;
       font-weight: 100;
-      span{
-          font-size: 24px;
-        }
+      columns: 2;
+      column-gap: 2rem;
+
+      span {
+        font-size: 24px;
+      }
     }
   }
 }
@@ -44,14 +49,17 @@
   .aboutSection {
     padding: 16px;
   }
+
   .aboutContainer {
     background-color: colors.$brand-green;
     padding: 20px;
     border-radius: 20px;
+
     h1 {
       color: white;
       font-size: 24px;
     }
+
     .aboutDescription {
       .descriptionText {
         font-size: 16px;
@@ -60,7 +68,9 @@
         letter-spacing: 1px;
         font-weight: 200;
         text-align: justify;
-        span{
+        columns: 1;
+
+        span {
           font-size: 20px;
         }
       }

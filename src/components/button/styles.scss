@@ -3,7 +3,7 @@
 
 .button {
   font-family: fonts.$primary-font;
-
+  
   font-weight: 500;
 }
 .hero-button {
@@ -30,10 +30,11 @@
 }
 .card-button {
   border-radius: 20px;
-  padding: 10px 20px;
   font-weight: 500;
   border: none;
-  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:hover {
     background-color: black;
     color: white;
@@ -50,5 +51,9 @@
     font-size: 16px;
     width: 150px;
     height: 60px;
+  }
+  .card-button{
+    height: 30px;
+    font-size: 16px;
   }
 }
