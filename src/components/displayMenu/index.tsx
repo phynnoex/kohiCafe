@@ -4,7 +4,6 @@ import MenuItem from "../menuItem";
 import "./styles.scss";
 import OrderModal from "../../layout/orderModal";
 import { useModal } from "../../modalContext";
-import { useMediaQuery } from "@uidotdev/usehooks";
 
 type DisplayMenu = {
   menuTitle: string;
