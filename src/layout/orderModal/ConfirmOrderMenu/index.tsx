@@ -74,7 +74,8 @@ export default function ConfirmOrderMenu({
       <div className="order-modal__content-container">
         <div className="order-modal__image order-modal__image--checkout">
           <h1>Good ?</h1>
-          <img src={displayCoffee} alt="" />
+          <div className="image-container"><img src={displayCoffee} alt="" /></div>
+          <div className="layout-spacer"></div>
         </div>
         <div className="order-modal__order-description-container order-modal__description-container--checkout">
           <h1>Confirm Order</h1>

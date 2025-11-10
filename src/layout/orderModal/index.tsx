@@ -66,7 +66,7 @@ export default function OrderModal({ item }: { item: Item }) {
             setModalOpen(false);
           }}
         >
-          <FaXmark />
+          <FaXmark className="icon icon-desktop" />
         </div>
       </div>
       <OrderModalNavigation currentMenu={currentMenu} />
