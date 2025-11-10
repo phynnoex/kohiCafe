@@ -22,7 +22,6 @@ export default function DisplayMenu({ menuTitle, itemObjects }: DisplayMenu) {
     setModalOpen(true);
   };
 
-  const ismobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <div className="display-menu">
