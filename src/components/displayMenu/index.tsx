@@ -4,11 +4,14 @@ import MenuItem from "../menuItem";
 import "./styles.scss";
 import OrderModal from "../../layout/orderModal";
 import { useModal } from "../../modalContext";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 type DisplayMenu = {
   menuTitle: string;
   itemObjects: Item[];
 };
+
+
 
 export default function DisplayMenu({ menuTitle, itemObjects }: DisplayMenu) {
   const { modalOpen, setModalOpen } = useModal();
@@ -18,6 +21,8 @@ export default function DisplayMenu({ menuTitle, itemObjects }: DisplayMenu) {
     setSelectedItem(item);
     setModalOpen(true);
   };
+
+  const ismobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <div className="display-menu">
@@ -36,7 +41,6 @@ export default function DisplayMenu({ menuTitle, itemObjects }: DisplayMenu) {
         ))}
         {modalOpen && selectedItem && <OrderModal item={selectedItem} />}
       </div>
-      <hr />
     </div>
   );
 }

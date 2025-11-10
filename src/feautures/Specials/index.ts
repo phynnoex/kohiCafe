@@ -110,6 +110,7 @@ export const getfeaturedItems = async (): Promise<string[]> => {
 
     if (docSnap.exists()) {
       const data = docSnap.data();
+      console.log("Featured IDs:", data.featuredId);
       return data.featuredId as string[];
     } else {
       console.warn("No such document!");

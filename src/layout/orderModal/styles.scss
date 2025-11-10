@@ -244,16 +244,18 @@ h1 {
     position: fixed;
     height: 100dvh;
     width: 100dvw;
-    background-color: white;
     overflow-y: auto;
 
     &__navigation {
       display: none;
     }
 
+    
+
     &__cancel {
+      
       position: fixed;
-      top: 20px;
+      top: 120px;
       right: 20px;
       background-color: black;
       height: max-content;
@@ -269,12 +271,24 @@ h1 {
       padding: 8px 10px;
     }
 
+    .icon-desktop{
+      background-color: transparent;
+      color: white;
+      padding: 0px;
+      border-radius: 0px;
+      cursor: pointer;
+    }
+
     &__content {
+      border-radius: 16px 16px 0px 0px;
+      position: absolute;
+      bottom: 0;
       overflow-y: scroll;
       width: 100dvw;
       background-color: white;
-      height: 100dvh;
+      height: 90dvh;
       padding: 0px;
+      
     }
 
     @supports not (height: 100dvh) {
