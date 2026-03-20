@@ -6,7 +6,7 @@ A fully responsive **e-commerce web application** built with **React and TypeScr
 
 ## 🚀 Live Demo
 
-🔗 https://phynnoex.github.io/kohiCafe/
+🔗 https://kohicafe.netlify.app/
 
 ---
 
