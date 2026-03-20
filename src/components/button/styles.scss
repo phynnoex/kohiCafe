@@ -3,7 +3,6 @@
 
 .button {
   font-family: fonts.$primary-font;
-  
   font-weight: 500;
 }
 .hero-button {
@@ -29,6 +28,7 @@
   color: white;
 }
 .card-button {
+  margin-top: 6px;
   border-radius: 20px;
   font-weight: 500;
   border: none;
@@ -43,7 +43,15 @@
     transition: 0.2s ease-in-out;
   }
 }
-
+// tablet screen
+@media (max-width: 1024px) {
+  .hero-button {
+    font-size: 20px;
+    width: 180px;
+    height: 60px;
+  }
+  
+}
 
 // mobile screen 
 

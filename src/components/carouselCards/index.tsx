@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { getfeaturedItems, getItembyId,} from "../../feautures/Specials";
 import { useModal } from "../../modalContext";
 import OrderModal from "../../layout/orderModal";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 export default function Carousel() {
   const [cards, setCards] = useState<Item[]>([]);
@@ -17,6 +18,8 @@ export default function Carousel() {
     setSelectedItem(item);
     setModalOpen(true);
   };
+  
+  const isTablet = useMediaQuery("(max-width: 1024px) and (min-width: 769px)");
 
   useEffect(() => {
   async function fetchCards() {
@@ -45,7 +48,9 @@ export default function Carousel() {
 
 
   const [startIndex, setStartIndex] = useState(0);
-  const windowSize = 4;
+  const windowSize =  isTablet ? 3 : 4;
+
+  //window size determined by screen width 
 
   const canGoLeft = startIndex > 0;
   const canGoRight = startIndex + windowSize < cards.length;

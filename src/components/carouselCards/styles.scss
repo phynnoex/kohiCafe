@@ -6,9 +6,13 @@
     display: flex;
     align-items: center;
     padding: 10px;
+    justify-content: space-between;
     overflow: hidden;
     clip-path: inset(0 0 0 0);
     .navButton {
+      width: 10%;
+      min-width: 60px;
+      min-height: 60px;
       width: 60px;
       height: 60px;
       background-color: white;
@@ -28,6 +32,7 @@
       }
     }
     .cardContainer {
+      width: 80%;
       display: flex;
       gap: 20px;
     }
