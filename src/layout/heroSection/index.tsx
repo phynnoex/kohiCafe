@@ -1,8 +1,11 @@
 import Button from "../../components/button";
 import "./styles.scss";
 import heroImage from "../../assets/japanese-man-making-coffee-restaurant (1) 1.png"
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
+
+  const navigate = useNavigate();
   return (
     <div className="heroSection">
       <div className="heroDescription">
@@ -15,7 +18,7 @@ export default function Hero() {
         <div className="buttonContainer">
           {" "}
           <Button buttonType="secondary" text="About us" onClick={() => {}} />
-            <Button buttonType="primary" text="Order now" onClick={() => {}} />
+            <Button buttonType="primary" text="Order now" onClick={() => {navigate("/menu")}} />
         </div>
       </div>
       <div className="heroImage">
